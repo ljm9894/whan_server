@@ -16,7 +16,7 @@ router.post('/signup', async(req,res)=>{
             }).catch((err) =>console.log(err));
         }
     if(getUser.email >0){
-        return res.status(200).send(util.sucessFalse(statusCode.BAD_REQUEST,resMessage.SIGNUP_FAIL))
+        return res.status(200).send(util.successFalse(statusCode.BAD_REQUEST,resMessage.SIGNUP_FAIL))
     }
 
     const data = {
@@ -30,11 +30,8 @@ router.post('/signup', async(req,res)=>{
          return res.status(200).send(util.successTrue(statusCode.OK, resMessage.SIGNUP_SUCCESS,));
     }catch(err){
         console.log(err);
-        return res.status(500).send(util.sucessFalse(statusCode.INTERNAL_SERVER_ERROR, resMessage.SIGNUP_SERVER_ERROR))   
-
+        return res.status(500).send(util.successFalse(statusCode.INTERNAL_SERVER_ERROR, resMessage.SIGNUP_SERVER_ERROR))   
     }
-
-    
 });
 
 module.exports = router;

@@ -7,7 +7,7 @@ const authUtil = {
             data : data
         }
     },
-    sucessFalse : (status, message) =>{
+    successFalse : (status, message) =>{
         return {
             status :status,
             success : false,

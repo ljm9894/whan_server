@@ -5,5 +5,11 @@ module.exports = {
 
 
 
-    SIGNUP_SERVER_ERROR : "형식이 잘 못 전송 되었습니다."
+
+    SIGNUP_SERVER_ERROR : "회원가입 데이터 못 가져옴",
+
+
+    SIGNIN_SERVER_ERROR : "로그인 데이터 못 가져옴",
+    SIGNIN_FAIL : "가입된 사용자가 없거나 비밀번호 및 이메일이 틀렸습니다.",
+    SIGNIN_SUCCESS : "로그인 성공"
 }
