@@ -21,7 +21,7 @@ module.exports= class Profile extends Sequelize.Model {
             collate : 'utf8mb4_general_ci',
         });
     }
-    static associate(db){
-        
+    static associate(models){
+       
     }
 };

@@ -17,8 +17,8 @@ User.init(sequelize);
 Profile.init(sequelize);
 
 
-//User.associate(db);
-//Profile.associate(sequelize);
+User.associate(db);
+Profile.associate(sequelize);
 
 
 
