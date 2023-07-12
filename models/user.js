@@ -29,7 +29,8 @@ module.exports = class User extends Sequelize.Model{
         });
     }
     static associate(db) {
-        this.hasOne(db.Profile, {foreignKey : 'userId', onDelete : 'CASCADE'});
+        this.belongsTo(db.Profile, {foreignKey : 'profileId'});
+        
       }
     
 };

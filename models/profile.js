@@ -20,6 +20,7 @@ module.exports= class Profile extends Sequelize.Model {
         });
     }
     static associate(db){
-        this.belongsTo(db.User, {foreignKey : 'userId'});
+        // this.belongsTo(db.User, {foreignKey : 'userId'});
+        db.Profile.hasOne(db.User);
     }
 };

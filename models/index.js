@@ -16,10 +16,7 @@ db.Profile = Profile;
 User.init(sequelize);
 Profile.init(sequelize);
 
-
-User.associate(db);
-Profile.associate(sequelize);
-
-
+User.belongsTo(db.Profile, { foreignKey: 'profile_id'});
+Profile.belongsTo(db.User, { foreignKey: 'user_id'});
 
 module.exports = db;
