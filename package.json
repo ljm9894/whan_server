@@ -5,11 +5,16 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app"
+    "start": "nodemon app",
+    "format": "prettier --check ./",
+    "format:fix": "prettier --write ./"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "nodemon": "^3.0.1"
   },
   "dependencies": {
