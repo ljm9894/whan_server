@@ -5,6 +5,7 @@ const db = require('../../models');
 const util = require('../../module/utils');
 const resMessage = require('../../module/responseMessage');
 const statusCode = require('../../module/statusCode');
+const jwtUtils = require('../../jwt/jwt')
 const User = db.User;
 
 
@@ -22,13 +23,33 @@ router.post('/signin', async(req,res)=>{
         if(!getUser || getUser.password !== hashedCheckPassword){
             return res.status(200).send(util.successFalse(statusCode.BAD_REQUEST, resMessage.SIGNIN_FAIL));
         }else{
-            const data = `로그인된 사용자 이메일: ${email}`
-            return res.status(200).send(util.successFalse(statusCode.OK, resMessage.SIGNIN_SUCCESS, data));
+            const tokens = jwtUtils.sign(getUser);
+            const refreshToken = tokens.refreshToken;
+            const updateUser = await User.update({
+                refreshtoken : refreshToken    
+            },{where : {email : getUser.email}}
+            )
+            if(!updateUser){
+                res.status(200).send(util.successTrue(statusCode.DB_ERROR, resMessage.REFRESH_UPDATE_ERROR));
+
+            }else{
+                const tokenResult = [];
+                let json = new Object();
+                json.token = tokens.token;
+                json.refreshToken = tokens.refreshToken;
+                json.email = email;
+                json.expires_in = 3600;
+                tokenResult.push(json);
+                return res.status(200).send(util.successTrue(statusCode.OK, resMessage.SIGNIN_SUCCESS,tokenResult));
+            }
+            
 
         }
 
     }catch(err){
-        return res.status(500).send(util.successFalse(statusCode.INTERNAL_SERVER_ERROR,resMessage.SIGNIN_FAIL));
+        console.log(err);
+        return res.status(500)
+                  .send(util.successFalse(statusCode.INTERNAL_SERVER_ERROR,resMessage.SIGNIN_FAIL));
     }
 })
 
