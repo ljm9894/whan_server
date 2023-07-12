@@ -22,10 +22,16 @@ module.exports = {
 
   USER_GET_ALL: "유저 전체 정보 불러옴",
 
+  PROFILE_NOT_FOUND: "프로필 찾지 못함",
+
   PROFILE_UPDATED: "프로필 업데이트 성공",
   INVALID_TOKEN: "잘못된 형식의 토큰입니다.",
   EMPTY_TOKEN: "토큰이 없습니다.",
   USER_LOGOUT: "프로필 로그아웃 성공",
   SUCCESS_USER_DELETE: "유저 삭제 성공",
   FALSE_USER_DELETE: "유저 삭제 실패",
+  GET_MYPROFILE: "내프로필 가져오기 실패",
+  GET_MYROFILE_ERROR: "프로필 서버에러",
+  GET_PROFILE_SEE: "프로필 보기 성공",
+  GET_PROFILE_SEE_ERROR: "프로필 보기 서버 에러",
 };
