@@ -6,6 +6,7 @@ const resMessage = require("../../module/responseMessage");
 const statusCode = require("../../module/statusCode");
 const { authenticateUser } = require("../../jwt/authenticate");
 const Profile = db.Profile;
+const User = db.User;
 
 router.get("/my", authenticateUser, async (req, res) => {
   try {
@@ -15,7 +16,6 @@ router.get("/my", authenticateUser, async (req, res) => {
         email: userEmail,
       },
     });
-
     if (!user) {
       return res
         .status(404)
@@ -24,7 +24,7 @@ router.get("/my", authenticateUser, async (req, res) => {
 
     const myProfile = await Profile.findOne({
       where: {
-        userId: user.id,
+        user_id: user.id,
       },
     });
 
