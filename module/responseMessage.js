@@ -16,4 +16,6 @@ module.exports = {
 
     REFRESH_UPDATE_ERROR : "refreshtoken DB등록 오류",
     
+
+    USER_GET_ALL : "유저 전체 정보 불러옴"
 }

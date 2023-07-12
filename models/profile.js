@@ -2,14 +2,12 @@ const Sequelize = require('sequelize');
 module.exports= class Profile extends Sequelize.Model {
     static init(sequelize){
         return super.init({
-            name : {
-                type : Sequelize.STRING,
-                allowNull : false,
-            },
+           
             img : {
                 type : Sequelize.STRING,
                 allowNull:true,
             },
+            
         },{
             sequelize,
             timestamps : true,
@@ -21,7 +19,7 @@ module.exports= class Profile extends Sequelize.Model {
             collate : 'utf8mb4_general_ci',
         });
     }
-    static associate(models){
-       
+    static associate(db){
+        this.belongsTo(db.User, {foreignKey : 'userId'});
     }
 };

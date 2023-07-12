@@ -16,6 +16,7 @@ module.exports = class User extends Sequelize.Model{
                 type : Sequelize.STRING,
                 allowNull : true,
             },
+            
         }, {
             sequelize,
             timestamps : true,
@@ -27,11 +28,8 @@ module.exports = class User extends Sequelize.Model{
             collate : 'utf8_general_ci',
         });
     }
-    static associate(models) {
-        this.hasOne(models.Profile, {
-          foreignKey: 'userId',
-          as: 'profile',
-        });
+    static associate(db) {
+        this.hasOne(db.Profile, {foreignKey : 'userId', onDelete : 'CASCADE'});
       }
     
 };

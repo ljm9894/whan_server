@@ -31,7 +31,6 @@ router.post('/signin', async(req,res)=>{
             )
             if(!updateUser){
                 res.status(200).send(util.successTrue(statusCode.DB_ERROR, resMessage.REFRESH_UPDATE_ERROR));
-
             }else{
                 const tokenResult = [];
                 let json = new Object();
