@@ -1,19 +1,32 @@
 const express =require('express');
-const dotenv = require('dotenv');
-const morgan = require('morgan');
+require('dotenv').config();
+const {sequelize} = require('./models');
+const indexRouter = require('./index');
 const app = express();
 const port = process.env.SERVER_PORT;
 
-require('dotenv').config;
 
 app.use(morgan('dev'));
 
+sequelize.sync({force: false})
+.then(()=>{
+    console.log('db연결 성공');
+})
+.catch((err)=>{
+    console.error(err);
+})
+
+app.use('/',indexRouter);
 
 app.use((req,res,next)=> {
     const error = new Error(`${req.method} ${req.url}`);
     error.status =404;
     next(error);
 })
+
+
+
+
 app.listen(port, ()=> { 
-    console.log(`http://localhost:8${port}에서 대기중입니다.`);
+    console.log(`http://localhost:${port}에서 대기중입니다.`);
 })
