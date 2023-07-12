@@ -2,13 +2,15 @@ const express =require('express');
 const morgan = require('morgan');
 require('dotenv').config();
 const {sequelize} = require('./models');
+const cors = require('cors');
 const indexRouter = require('./index');
 const app = express();
+
 const port = process.env.SERVER_PORT;
 
 
 app.use(morgan('dev'));
-
+app.use(cors());
 
 sequelize.sync({force: false})
 .then(()=>{
@@ -24,7 +26,7 @@ app.use(express.urlencoded({extended : false}));
 app.use('/',indexRouter);
 
 app.use((req,res,next)=> {
-    const error = new Error(`${req.method} ${req.url} 에러가 발생했습니다.`);
+    const error = new Error(`${req.method} ${req.url} 라우터오류 발생`);
     error.status =404;
     next(error);
 })
