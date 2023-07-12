@@ -6,6 +6,7 @@ const util = require('../../module/utils');
 const resMessage = require('../../module/responseMessage');
 const statusCode = require('../../module/statusCode');
 const User = db.User
+const Profile = db.Profile
 
 router.post('/signup', async(req,res)=>{
     const {email, name, password} = req.body;
@@ -26,7 +27,11 @@ router.post('/signup', async(req,res)=>{
     }
     try{
         const user = await User.create(data)
+        const createdProfile = await Profile.create({
+            user_id : user.id,
+        })
         console.log(user);
+        console.log(createdProfile)
          return res.status(200).send(util.successTrue(statusCode.OK, resMessage.SIGNUP_SUCCESS,));
     }catch(err){
         console.log(err);
