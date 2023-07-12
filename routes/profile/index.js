@@ -1,10 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const setProfileRouter = require('./setProfile');
+const setProfileRouter = require("./setProfile");
 
-
-router.use('/', setProfileRouter);
-
-
+router.use("/", setProfileRouter);
 
 module.exports = router;

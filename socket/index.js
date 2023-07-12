@@ -1,16 +1,14 @@
 /* 설치한 express 모듈 불러오기 */
 const express = require("express");
 
-
 const socket = require("socket.io");
 const http = require("http");
 const fs = require("fs");
 
-const app = express.Router();
+const router = express.Router();
 
-const server = http.createServer(app);
+const server = http.createServer(router);
 const io = socket(server);
-
 
 /* Get 방식으로 / 경로에 접속하면 실행 됨 */
 router.get("/", function (request, response) {

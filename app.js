@@ -1,19 +1,10 @@
-<<<<<<< HEAD
-const express =require('express');
-const morgan = require('morgan');
-require('dotenv').config();
-const {sequelize} = require('./models');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const indexRouter = require('./index');
-=======
 const express = require("express");
 const morgan = require("morgan");
 require("dotenv").config();
 const { sequelize } = require("./models");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const indexRouter = require("./index");
->>>>>>> jinsoo1004
 const app = express();
 
 const port = process.env.SERVER_PORT;
@@ -28,13 +19,8 @@ sequelize
   })
   .catch((err) => {
     console.error(err);
-<<<<<<< HEAD
-})
-app.use(cookieParser());
-=======
   });
-
->>>>>>> jinsoo1004
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
