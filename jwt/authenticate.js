@@ -1,4 +1,6 @@
 const jwt = require('jsonwebtoken');
+const db = require('../models/');
+const User = db.User;
 require('dotenv').config();
 const secret = process.env.SECRET_KEY;
 exports.authenticateUser = async (req, res, next) => {
@@ -12,8 +14,12 @@ exports.authenticateUser = async (req, res, next) => {
       const decoded = jwt.verify(accessToken, secret); // Access Token 검증
   
       // Access Token의 payload에서 사용자 정보를 가져옴
-      const userId = decoded.id;
-      const user = await prisma.user.findUnique({ where: { userId} });
+      const userEmail = decoded.email;
+      const user = await User.findOne({
+        where : {
+            email : userEmail
+        }
+      })
   
       if (!user) {
         return res.status(401).json({ message: '유효하지 않은 사용자입니다.' });

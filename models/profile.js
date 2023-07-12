@@ -7,6 +7,22 @@ module.exports= class Profile extends Sequelize.Model {
                 type : Sequelize.STRING,
                 allowNull:true,
             },
+            info : {
+                type : Sequelize.STRING,
+                allowNull : true
+            },
+            nick : {
+                type : Sequelize.STRING,
+                allowNull : true
+            },
+            age : {
+                type : Sequelize.INTEGER,
+                allowNull : true
+            },
+            location : {
+                type : Sequelize.STRING,
+                allowNull : true
+            }
             
         },{
             sequelize,
