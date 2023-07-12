@@ -8,7 +8,6 @@ module.exports = {
   SIGNIN_FAIL: "가입된 사용자가 없거나 비밀번호 및 이메일이 틀렸습니다.",
   SIGNIN_SUCCESS: "로그인 성공",
 
-<<<<<<< HEAD
 
 
     SIGNUP_SERVER_ERROR : "회원가입 데이터 못 가져옴",
@@ -28,7 +27,3 @@ module.exports = {
     INVALID_TOKEN:'잘못된 형식의 토큰입니다.',
     EMPTY_TOKEN:'토큰이 없습니다.',
 }
-=======
-  REFRESH_UPDATE_ERROR: "refreshtoken DB등록 오류",
-};
->>>>>>> jinsoo1004
