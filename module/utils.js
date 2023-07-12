@@ -14,6 +14,15 @@ const authUtil = {
       message: message,
     };
   },
+  jwtSend: (status, message, accessToken, refreshToken) => {
+    return {
+      status: status,
+      success: true,
+      message: message,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+    };
+  },
 };
 
 module.exports = authUtil;

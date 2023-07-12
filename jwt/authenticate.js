@@ -4,8 +4,8 @@ const User = db.User;
 require("dotenv").config();
 const secret = process.env.SECRET_KEY;
 exports.authenticateUser = async (req, res, next) => {
-  const accessToken = req.cookies.accessToken; // 쿠키에서 Access Token을 가져옴
-
+  const authorizaion = "authorization";
+  const accessToken = req.headers["token"]; // 쿠키에서 Access Token을 가져옴
   if (!accessToken) {
     return res.status(401).json({ message: "Access Token이 없습니다." });
   }

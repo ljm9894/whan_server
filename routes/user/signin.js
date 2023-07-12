@@ -29,11 +29,11 @@ router.post("/signin", async (req, res) => {
       const accessToken = generateAccessToken(email);
       const refreshToken = generateRefreshToken(email);
       // Refresh Token을 쿠키로 설정
-      res.cookie("refreshToken", refreshToken, { httpOnly: true });
-      res.cookie("accessToken", accessToken, { httpOnly: true });
+      // res.cookie("refreshToken", refreshToken, { httpOnly: true });
+      // res.cookie("accessToken", accessToken, { httpOnly: true });
       return res
         .status(200)
-        .send(util.successTrue(statusCode.OK, resMessage.SIGNIN_SUCCESS, accessToken));
+        .send(util.jwtSend(statusCode.OK, resMessage.SIGNIN_SUCCESS, accessToken, refreshToken));
     }
   } catch (err) {
     console.log(err);
