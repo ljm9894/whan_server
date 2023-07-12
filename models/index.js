@@ -22,6 +22,4 @@ Profile.init(sequelize);
 
 
 
-
-
 module.exports = db;
