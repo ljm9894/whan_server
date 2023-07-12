@@ -8,7 +8,7 @@ module.exports = class User extends Sequelize.Model{
                 allowNull : true,
                 unique: true,
             },
-            nick : {
+            name : {
                 type : Sequelize.STRING,
                 allowNull : false,
             },
@@ -28,7 +28,10 @@ module.exports = class User extends Sequelize.Model{
         });
     }
     static associate(models) {
-        
+        this.hasOne(models.Profile, {
+          foreignKey: 'userId',
+          as: 'profile',
+        });
       }
     
 };
