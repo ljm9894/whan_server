@@ -25,4 +25,7 @@ module.exports = {
   PROFILE_UPDATED: "프로필 업데이트 성공",
   INVALID_TOKEN: "잘못된 형식의 토큰입니다.",
   EMPTY_TOKEN: "토큰이 없습니다.",
+  USER_LOGOUT: "프로필 로그아웃 성공",
+  SUCCESS_USER_DELETE: "유저 삭제 성공",
+  FALSE_USER_DELETE: "유저 삭제 실패",
 };
