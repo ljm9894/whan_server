@@ -34,4 +34,7 @@ module.exports = {
   GET_MYROFILE_ERROR: "프로필 서버에러",
   GET_PROFILE_SEE: "프로필 보기 성공",
   GET_PROFILE_SEE_ERROR: "프로필 보기 서버 에러",
+
+  TRANSLATE_FALSE: "번역 실패",
+  TRANSLATE_OK: "번역 성공",
 };
