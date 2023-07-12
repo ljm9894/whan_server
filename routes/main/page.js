@@ -1,11 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const crypto = require('crypto');
 const db = require('../../models');
 const util = require('../../module/utils');
 const resMessage = require('../../module/responseMessage');
 const statusCode = require('../../module/statusCode');
-const jwtUtils = require('../../jwt/jwt')
 
 
 router.get('/', async(req,res)=>{

@@ -17,5 +17,9 @@ module.exports = {
     REFRESH_UPDATE_ERROR : "refreshtoken DB등록 오류",
     
 
-    USER_GET_ALL : "유저 전체 정보 불러옴"
+    USER_GET_ALL : "유저 전체 정보 불러옴",
+
+    PROFILE_UPDATED : "프로필 업데이트 성공",
+    INVALID_TOKEN:'잘못된 형식의 토큰입니다.',
+    EMPTY_TOKEN:'토큰이 없습니다.',
 }

@@ -3,6 +3,7 @@ const morgan = require('morgan');
 require('dotenv').config();
 const {sequelize} = require('./models');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const indexRouter = require('./index');
 const app = express();
 
@@ -19,7 +20,7 @@ sequelize.sync({force: false})
 .catch((err)=>{
     console.error(err);
 })
-
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 

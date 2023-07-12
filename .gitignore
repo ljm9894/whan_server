@@ -1,6 +1,5 @@
 node_modules
 .env
 .env.develop
-config
 
 DS_Store
